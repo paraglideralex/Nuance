@@ -11,11 +11,13 @@ public abstract class Human
 {
     protected Dick dick = new();
     protected Ass ass = new();
+
+    public Dick Dick => dick;
     public bool HasDickInAss => Nuance();
 
     protected abstract bool Nuance();
 
-    public void GetDick() => ass.GetDick(dick);
+    public void GetDick(Dick dick) => ass.GetDick(dick);
 }
 
 public class Petka : Human
@@ -33,7 +35,7 @@ public class Chapaev : Human
 
     public void Friction(Human human)
     {
-        human.GetDick();
+        human.GetDick(human.Dick);
         submissive = human;
     }
 }
